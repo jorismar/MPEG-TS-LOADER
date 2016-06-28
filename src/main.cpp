@@ -1,16 +1,24 @@
 #include <iostream>
+#include <string>
 #include "utils.h"
 #include "ts.h"
 
 #define TS_PACKET_SIZE 188
 
-int main()
-{
+int main(int argc, char *argv[]) {
+	std::string filename;
+	
+	// Select TS file
+	if(argc > 1)
+		filename = argv[1];
+	else
+		filename = "video.ts";
+		
 	// Buffer to store the file data.
 	byte_t * buffer;
 
 	// Read file
-	unsigned int size = readFile("video.ts", &buffer);
+	unsigned int size = readFile(filename, &buffer);
 
 	CHECK_ERR(size <= 0, "File read error.", 1);
 	
@@ -30,5 +38,3 @@ int main()
 
     return 0;
 }
-
-// if program_map_PID == PID = PMT

@@ -10,5 +10,5 @@ clean:
 	@-rm -r ./bin/*
 
 run:
-	@-$(EXEC)
+	@-$(EXEC) $(filter-out $@,$(MAKECMDGOALS))
 
