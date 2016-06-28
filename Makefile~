@@ -8,7 +8,7 @@ all:
 	@-$(CC) $(CPP) -o $(EXEC) -I $(INCLUDE)
 
 clean:
-	@-rm -r ./bin
+	@-rm -r ./bin/*
 
 run:
 	@-$(EXEC) $(filter-out $@,$(MAKECMDGOALS))
